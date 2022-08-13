@@ -13,7 +13,6 @@ $(document).keypress(function() {
 });
 
 function nextSequence() {
-  // ++level;
   $("#level-title").text("Level " + ++level);
   let randomNumber = Math.floor(Math.random() * 4);
   let randomChosenColour = buttonColours[randomNumber];
@@ -43,7 +42,6 @@ $(".btn").click(function() {
     } else {
       clickable = false;
       gameOver();
-      // game over
     }
   }
 });
@@ -62,12 +60,6 @@ function animatedPress(currentColour) {
 
 function correctBtn() {
   let i = userClickedPattern.length - 1;
-  console.log("level " + level);
-  console.log("Correct Btn:");
-  console.log("userClickedPattern = " + userClickedPattern);
-  console.log("userClickedPattern[i] = " + userClickedPattern[i]);
-  console.log("gamePattern = " + gamePattern);
-  console.log("gamePattern[i] = " + gamePattern[i]);
   return (userClickedPattern[i] === gamePattern[i]);
 }
 
@@ -83,15 +75,3 @@ function gameOver() {
   level = 0;
   $("#level-title").html("/!\\ Game Over! /!\\<br>Press Any Key To Resart");
 }
-
-// function check(seq1, seq2) {
-//   s1 = seq1.slice();
-//   s2 = seq2.slice();
-//   if (s1.length === s2.length) {
-//     if (s1.length === 0) {
-//       return true;
-//     } else {
-//       return (s1.shift() === s2.shift() && check(s1, s2));
-//     }
-//   } else return false
-// }
